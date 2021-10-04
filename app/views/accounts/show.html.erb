@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>ユーザーID</th>
+    <td><%= @user_id %></td>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <td><%= @display_name %></td>
+  </tr>
+  <tr>
+    <th>写真</th>
+    <td><%= image_tag @picture_url, width: 80 %></td>
+  </tr>
+</table>
+
+<%= form_with url: messages_path do |form| %>
+  <%= form.text_area :content %>
+  <%= form.submit %>
+<% end %>
