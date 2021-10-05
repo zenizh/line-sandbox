@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
         code: params['code'],
         redirect_uri: ENV.fetch('LINE_LOGIN_REDIRECT_URI'),
         client_id: ENV.fetch('LINE_LOGIN_CLIENT_ID'),
-        client_secret: ENV.fetch('LINE_LOGIN_CLIENT_SECRET')
+        client_secret: ENV.fetch('LINE_LOGIN_CLIENT_SECRET'),
+        code_verifier: ENV.fetch('LINE_LOGIN_CODE_VERIFIER')
       }.to_param
     end
 
