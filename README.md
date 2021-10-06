@@ -72,7 +72,7 @@ User -> Server : ログイン
 App <- Server ++ : コールバックURLにリダイレクト
 App -> Server : アクセストークンをリクエスト
 note right App : 2で生成したcode_verifierを含める
-Server -> Server : code_challengeを検証
+Server -> Server : code_verifierを検証
 App <- Server -- : アクセストークンを返却
 User <- App : 画面を表示
 
@@ -99,9 +99,9 @@ User <- Server : ログイン画面を表示
 User -> Server : ログイン
 Malware <- Server ++ #ffaaaa : コールバックURLにリダイレクト
 Malware -> Server : アクセストークンをリクエスト
-Server -> Server : code_challengeを検証
+Server -> Server : code_verifierを検証
 note left Server
-code_verifierがないので
+code_verifierが不正なので
 検証に失敗する
 end note
 Malware x-- Server -- : アクセストークンの取得失敗
